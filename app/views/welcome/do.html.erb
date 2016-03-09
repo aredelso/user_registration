@@ -1,2 +1,22 @@
 <h1>Welcome</h1>
 <p>Hello <%= @user.user_name %>!</p>
+
+Full Name: <%= @user.full_name %></br>
+Street Address: <%= @user.address %></br>
+City: <%= @user.city %></br>
+State: <%= @user.state %></br>
+Postal Code: <%= @user.postal_code %></br>
+Country: <%= @user.country %></br>
+Email: <%= @user.email %></br>
+<% if flash[:no_phone] %>
+    <div class="no_phone"><%= flash[:no_phone] %></div>
+<% end %>
+<ul>
+  <% @phones.each do |phone| %>
+    <li>Phone Number: <%= phone.number %></li>
+  <% end %>
+</ul>
+
+<form action='/welcome/logout' method='post' >
+  <input type='submit' value='Logout'/>
+</form>

@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
-  get 'welcome/do'
+  get '/logout/do'
+
+  get '/welcome/do'
 
   post '/users/login'
 
-  get 'confirmation/do'
+  get '/confirmation/do'
 
   post '/users/register'
 
-  root 'users#register'
+  get '/users/index'
+
+  get '/confirmation/goToInfo'
+
+  post '/welcome/logout'
+
+  root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
