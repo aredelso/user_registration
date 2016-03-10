@@ -1,9 +1,14 @@
-<h1>Registration Confirmation</h1>
-<p> <!--Prints the user name and informs them their user_name and passowrd have been successfully created -->
-Hello <%= @user.user_name %>!</br>
-Your User ID and Password are confirmed.
-</p>
+<div class="wrapper">
 
-<form action="/welcome/do" method="get">
-  <input type="submit" value="Go To Profile"/>
-</form>
+  <form class="conf" action="/welcome/do" method="get">
+    <p class="title">Registration Confirmation</p>
+    <h2>Hello <%= @user.user_name %>!</br>
+    Your User ID and Password are confirmed.</h2>
+
+
+      <button>
+        <span class="state">Go To Profile</span>
+      </button>
+  </form>
+
+</div>

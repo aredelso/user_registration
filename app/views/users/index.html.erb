@@ -2,14 +2,14 @@
   <form class="login" action="/users/login" method="post">
     <p class="title">Log in</p>
     <input type="text" name="user_name" placeholder="Username" autofocus=""/>
-    <input type="text" name="password" placeholder="Password"/>
+    <input type="password" name="password" placeholder="Password"/>
     <button id="login_btn">
       <span class="state">Log in</span>
     </button>
-    <a href="users/register">Not registered yet?</a>
-    <% if flash[:alert] %>
+    <a href="/register/do">Not registered yet?</a>
+    <h3><% if flash[:alert] %>
         <div class="alert"><%= flash[:alert] %></div>
-    <% end %>
+    <% end %></h3>
   </form>
 
 </div>

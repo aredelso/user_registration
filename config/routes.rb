@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/register/do'
+
+  post 'register/create'
+
   get '/logout/do'
 
   get '/welcome/do'

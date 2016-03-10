@@ -1,10 +1,10 @@
 <div class="wrapper">
-  <form class="register" action="/users/register" method="post">
+  <form class="register" action="/register/create" method="post">
 
     <p class="title">Register</p>
 
     <input type="text" name="user_name" placeholder="Username*" autofocus/>
-    <input type="text" name="password" placeholder="Password*" />
+    <input type="password" name="password" placeholder="Password*" />
     <input type="text" name="full_name" placeholder="Full Name"/>
     <input type="text" name="address" placeholder="Street Address"/>
     <input type="text" name="city" placeholder="City" />
@@ -19,14 +19,11 @@
       <span class="state">Register</span>
     </button>
     <a href="/users/index">Already have an account?</a>
-    <% if flash[:error] %>
+    <h3><% if flash[:error] %>
         <div class="error"><%= flash[:error] %></div>
     <% end %>
     <% if flash[:blank_reg] %>
       <div class="blank_reg"><%= flash[:blank_reg] %></div>
-    <% end %>
-    <% if @valid_string %>
-      <div class="valid_string"><%= @valid_string %></div>
     <% end %>
     <% if @same_string %>
       <div class="same_string"><%= @same_string %></div>
@@ -42,6 +39,6 @@
     <% end %>
     <% if @contains_string %>
       <div class="contains_string"><%= @contains_string %></div>
-    <% end %>
+    <% end %></h3>
   </form>
 </div>
