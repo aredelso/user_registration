@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/confirmation/do'
 
+  get '/users/register'
+
   post '/users/register'
 
   get '/users/index'

@@ -56,15 +56,15 @@ class UsersController < ApplicationController
           redirect_to '/confirmation/do'
         else
           flash[:error] = "Username already exists"
-          render 'users/index'
+          render 'users/register'
         end
       else
-        render 'users/index'
+        render 'users/register'
       end
     else
       # The registration page is rendered if the above conditions are not met.
       flash[:blank_reg] = "Must enter a username and password."
-      render 'users/index'
+      render 'users/register'
     end
   end
 
