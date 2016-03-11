@@ -4,17 +4,9 @@ class RegisterController < ApplicationController
 
   def create
     # This IF statement checks for empty user_name and password fields, and if they are not emtpy assigns the input to the corresponding variable.
-    if (params.has_key?(:user_name) && !params[:user_name].strip.empty?) &&
-       (params.has_key?(:password) && !params[:password].strip.empty?)
+    if (params.has_key?(:user_name) && !params[:user_name].strip.empty?) && (params.has_key?(:password) && !params[:password].strip.empty?)
       @user_name = params[:user_name].strip
       @password = params[:password].strip
-      full_name = params[:full_name].strip
-      address = params[:address].strip
-      city = params[:city].strip
-      state = params[:state].strip
-      postal_code = params[:postal_code].strip
-      country = params[:country].strip
-      email = params[:email].strip
       users = User.where(["user_name = ?", @user_name])
       if !checker
         if users.empty?
@@ -22,13 +14,34 @@ class RegisterController < ApplicationController
           # Assigns each variable to its corresponding column in the user object and saves it.
           @user.user_name = @user_name
           @user.password = @password
-          @user.full_name = full_name unless full_name.empty?
-          @user.address = address unless address.empty?
-          @user.city = city unless city.empty?
-          @user.state = state unless state.empty?
-          @user.postal_code = postal_code unless postal_code.empty?
-          @user.country = country unless country.empty?
-          @user.email = email unless email.empty?
+          if params.has_key?(:full_name) && !params[:full_name].strip.empty?
+            full_name = params[:full_name].strip
+            @user.full_name = full_name
+          end
+          if params.has_key?(:address) && !params[:address].strip.empty?
+            address = params[:address].strip
+            @user.address = address
+          end
+          if params.has_key?(:city) && !params[:city].strip.empty?
+            city = params[:city].strip
+            @user.city = city
+          end
+          if params.has_key?(:state) && !params[:state].strip.empty?
+            state = params[:state].strip
+            @user.state = state
+          end
+          if params.has_key?(:postal_code) && !params[:postal_code].strip.empty?
+            postal_code = params[:postal_code].strip.to_s
+            @user.postal_code = postal_code
+          end
+          if params.has_key?(:country) && !params[:country].strip.empty?
+            country = params[:country].strip
+            @user.country = country
+          end
+          if params.has_key?(:email) && !params[:email].strip.empty?
+            email = params[:email].strip
+            @user.email = email
+          end
           if params.has_key?(:phone1) && !params[:phone1].strip.empty?
             phone1 = params[:phone1].strip
             p1 = Phone.new
