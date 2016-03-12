@@ -12,7 +12,8 @@ class WelcomeController < ApplicationController
   end
 
   def logout
-    session[:id] = nil
+    @session_id = session[:id]
+    @session_id = nil
     redirect_to '/logout/do'
   end
 end
